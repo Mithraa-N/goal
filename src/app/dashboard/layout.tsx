@@ -6,9 +6,14 @@ import { User } from "@/lib/types";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
-  const { data: { user: authUser } } = await supabase.auth.getUser();
+  const { data: { user: authUser }, error: authError } = await supabase.auth.getUser();
+
+  console.log('--- DASHBOARD LAYOUT AUTH DEBUG ---');
+  console.log('User ID:', authUser?.id);
+  console.log('Error:', authError?.message);
 
   if (!authUser) {
+    console.log('Redirecting to /login from dashboard layout');
     redirect("/login");
   }
 
