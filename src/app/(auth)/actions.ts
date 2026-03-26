@@ -6,10 +6,9 @@ import { createClient } from "@/utils/supabase/server";
 import { checkRateLimit } from "@/lib/rate-limit";
 
 export async function login(formData: FormData) {
-  const ip = "unknown-ip"; // In a real edge environment, get IP from headers e.g., headers().get('x-forwarded-for')
-  // Basic rate limiting: 5 attempts per minute per pseudo-IP
+  const ip = "unknown-ip"; 
   if (!(await checkRateLimit(`login_${ip}`, 5, 60 * 1000))) {
-    return { error: "Too many login attempts. Please wait a minute." };
+    redirect("/login?error=" + encodeURIComponent("Too many login attempts. Please wait a minute."));
   }
 
   const supabase = await createClient();
@@ -19,7 +18,7 @@ export async function login(formData: FormData) {
   };
 
   const { error } = await supabase.auth.signInWithPassword(data);
-  if (error) return { error: error.message };
+  if (error) redirect("/login?error=" + encodeURIComponent(error.message));
 
   revalidatePath("/", "layout");
   redirect("/dashboard");
@@ -28,7 +27,7 @@ export async function login(formData: FormData) {
 export async function signup(formData: FormData) {
   const ip = "unknown-ip";
   if (!(await checkRateLimit(`signup_${ip}`, 5, 60 * 1000))) {
-    return { error: "Too many signup attempts. Please wait a minute." };
+    redirect("/signup?error=" + encodeURIComponent("Too many signup attempts. Please wait a minute."));
   }
 
   const supabase = await createClient();
@@ -43,9 +42,8 @@ export async function signup(formData: FormData) {
   };
 
   const { error } = await supabase.auth.signUp(data);
-  if (error) return { error: error.message };
+  if (error) redirect("/signup?error=" + encodeURIComponent(error.message));
 
-  // Wait for session and manually upsert user data just in case trigger takes time, but Supabase handles Auth users 
   revalidatePath("/", "layout");
   redirect("/dashboard");
 }
