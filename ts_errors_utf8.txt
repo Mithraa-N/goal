@@ -1,0 +1,9 @@
+﻿src/app/admin/page.tsx(83,53): error TS2345: Argument of type '(w: { id: string; amount: number; match_tier: number; user?: { full_name?: string | null; email?: string; }; created_at: string; }) => JSX.Element' is not assignable to parameter of type '(value: { id: any; amount: any; match_tier: any; status: any; user_id: any; created_at: any; user: { full_name: any; email: any; }[]; }, index: number, array: { id: any; amount: any; match_tier: any; status: any; user_id: any; created_at: any; user: { ...; }[]; }[]) => Element'.
+  Types of parameters 'w' and 'value' are incompatible.
+    Type '{ id: any; amount: any; match_tier: any; status: any; user_id: any; created_at: any; user: { full_name: any; email: any; }[]; }' is not assignable to type '{ id: string; amount: number; match_tier: number; user?: { full_name?: string | null | undefined; email?: string | undefined; } | undefined; created_at: string; }'.
+      Types of property 'user' are incompatible.
+        Type '{ full_name: any; email: any; }[]' has no properties in common with type '{ full_name?: string | null | undefined; email?: string | undefined; }'.
+src/app/api/stripe/webhook/route.ts(40,53): error TS2724: '"stripe".Stripe' has no exported member named 'CheckoutSession'. Did you mean 'AccountSession'?
+src/app/api/stripe/webhook/route.ts(55,53): error TS2339: Property 'current_period_end' does not exist on type 'Response<Subscription>'.
+src/app/api/stripe/webhook/route.ts(77,53): error TS2339: Property 'current_period_end' does not exist on type 'Subscription'.
+src/lib/stripe.ts(8,3): error TS2322: Type '"2025-01-27.acacia"' is not assignable to type '"2026-02-25.clover"'.

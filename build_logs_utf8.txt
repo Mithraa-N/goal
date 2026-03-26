@@ -1,0 +1,50 @@
+﻿  RET_KEY is not set:String) []   
+ , RemoteException
+    + FullyQualifiedErrorId : Nat 
+   iveCommandError
+ 
+    at module evaluation 
+(C:\Users\HP\Desktop\full stack\.n
+ext\server\chunks\src_lib_stripe_t
+s_0dp8kyq._.js:1:91668)
+    at instantiateModule 
+(C:\Users\HP\Desktop\full stack\.n
+ext\server\chunks\[turbopack]_runt
+ime.js:853:9)
+    at 
+getOrInstantiateModuleFromParent 
+(C:\Users\HP\Desktop\full stack\.n
+ext\server\chunks\[turbopack]_runt
+ime.js:877:12)
+    at Context.esmImport [as i] 
+(C:\Users\HP\Desktop\full stack\.n
+ext\server\chunks\[turbopack]_runt
+ime.js:281:20)
+    at instantiateModule 
+(C:\Users\HP\Desktop\full stack\.n
+ext\server\chunks\[turbopack]_runt
+ime.js:853:9)
+    at instantiateRuntimeModule 
+(C:\Users\HP\Desktop\full stack\.n
+ext\server\chunks\[turbopack]_runt
+ime.js:882:12)
+    at 
+getOrInstantiateRuntimeModule 
+(C:\Users\HP\Desktop\full stack\.n
+ext\server\chunks\[turbopack]_runt
+ime.js:895:12)
+    at Object.m 
+(C:\Users\HP\Desktop\full stack\.n
+ext\server\chunks\[turbopack]_runt
+ime.js:898:18)
+    at Object.<anonymous> 
+(C:\Users\HP\Desktop\full stack\.n
+ext\server\app\api\stripe\checkout
+\route.js:8:3)
+
+> Build error occurred
+Error: Failed to collect page 
+data for /api/stripe/checkout
+    at ignore-listed frames {
+  type: 'Error'
+}
